@@ -8,6 +8,7 @@ from os import getenv
 
 
 
+
 __author__ = 'Johns'
 
 
@@ -17,17 +18,29 @@ if __name__ == "__main__":
     soup = BeautifulSoup(request.urlopen("https://github.com/users/N0taN3rd/contributions").read(),'html.parser')
     print(soup)
     '''
+
+    wsdl = "ODU Web Science / Digital Libraries Research Group"
     g = Github(getenv("GitOath"))
     user = g.get_user()
-    orgs = user.get_orgs()
-    org = orgs[0]
-    for repo in org.get_repos():
+    wsdlOrg = None
+    for org in user.get_orgs():
+        if org.name == 'ODU Web Science / Digital Libraries Research Group':
+            wsdlOrg = org
+            break
+
+    for repo in wsdlOrg.get_repos():
         print(repo.name)
         print(repo.description)
         print(repo.html_url)
         print(repo.has_wiki)
-        for lang,num in repo.get_languages().items():
-            print(lang)
+
+        repoLangs = repo.get_languages()
+        if not len(repoLangs) == 0:
+            topLang = max(repoLangs.keys(),key=lambda k : repoLangs[k])
+            print(topLang)
+
+        for item in repo.get_languages().items():
+            print(item)
         print()
 
     '''
