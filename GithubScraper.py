@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from urllib import request
 from dominate import document
 from dominate.tags import *
+from os import getenv
 
 
 
@@ -16,7 +17,7 @@ if __name__ == "__main__":
     soup = BeautifulSoup(request.urlopen("https://github.com/users/N0taN3rd/contributions").read(),'html.parser')
     print(soup)
     '''
-    g = Github("myOAth")
+    g = Github(getenv("GitOath"))
     user = g.get_user()
     orgs = user.get_orgs()
     org = orgs[0]
@@ -27,12 +28,8 @@ if __name__ == "__main__":
         print(repo.has_wiki)
         for lang,num in repo.get_languages().items():
             print(lang)
-
-        '''
-        readme = repo.get_readme()
-        print(b64decode(readme.content))
-        '''
         print()
+
     '''
     memberLogin = {}
     for member in org.get_members():
