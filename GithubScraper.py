@@ -16,7 +16,7 @@ if __name__ == "__main__":
     soup = BeautifulSoup(request.urlopen("https://github.com/users/N0taN3rd/contributions").read(),'html.parser')
     print(soup)
     '''
-    g = Github("eda1ba1358e30a1936bf6cc422e9dcb3774e7ed9")
+    g = Github("myOAth")
     user = g.get_user()
     orgs = user.get_orgs()
     org = orgs[0]
