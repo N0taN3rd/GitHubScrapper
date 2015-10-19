@@ -66,7 +66,7 @@ def scrape_github():
                      ('https://ws-dl.cs.odu.edu/Main/GitHub', 'GitHub')]
 
     # use OAuth token set as a environment variable for a user to log in to GitHub
-    g = Github(getenv("GitOath"))
+    g = Github(getenv('GitOath'))
     user = g.get_user()
     wsdl_org = None
 
