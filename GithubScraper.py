@@ -20,7 +20,7 @@ def runderscore_capitalize(repo_name):
 
 
 def scrape_github():
-
+    print("Starting WS-DL GitHub repository html generation")
     dt = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/' \
          'DTD/xhtml1-transitional.dtd">'
 
@@ -161,7 +161,8 @@ def scrape_github():
     git_html = open('GitHub.html', 'w+')
     git_html.write(indentation.indent(doc.getvalue()))
     git_html.close()
-
+    print("Finished WS-DL GitHub repository html generation")
+    print("File generated is called GitHub.html")
 
 
 if __name__ == "__main__":
